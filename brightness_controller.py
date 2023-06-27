@@ -36,8 +36,6 @@ while True:
         light1 = np.interp(length, (30,93), (0,100))
         light2 = np.interp(length, (97,160), (0,100))
 
-
-        cv2.putText(img, f'{int(lengthhh)}%', (40,120), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2)
         if 49 <= lengthhh <= 51:
             img = img
             state = "normal"
@@ -49,7 +47,9 @@ while True:
             state = "bright"
 
        
+        cv2.rectangle(img, (50,150), (85,400),(0,255,0), 3)
         cv2.rectangle(img, (50,int(bar)), (85,400),(0,255,0), cv2.FILLED)
+        cv2.putText(img, f'{int(lengthhh)}%', (40,120), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2)
 
     cv2.putText(img, f'{str(state)}', (150,120), cv2.FONT_HERSHEY_PLAIN, 3, (0,255,0), 2)
 
